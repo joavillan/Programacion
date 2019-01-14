@@ -15,6 +15,11 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 	boolean booldato;
 	long longdato;
 
+	/**
+	 * Controla la excepciones de la introducción de los datos enteros
+	 * @return
+	 * @throws IOException
+	 */
 	public int excepcionint() throws IOException {
 		boolean n1=true;
 		do {
@@ -30,6 +35,11 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 			return numeroint;
 	}
 	
+	/**
+	 * Controla la excepciones de la introducción de los datos float
+	 * @return
+	 * @throws IOException
+	 */
 	public float excepcionfloat() throws IOException {
 		boolean n1=true;
 		do {
@@ -45,6 +55,11 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 			return numerofloat;
 	}
 	
+	/**
+	 * Controla la excepciones de la introducción de los datos double
+	 * @return
+	 * @throws IOException
+	 */
 	public double excepciondouble() throws IOException {
 		boolean n1=true;
 		do {
@@ -60,6 +75,11 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 			return numerodouble;
 	}
 	
+	/**
+	 * Controla la excepciones de la introducción de los datos enteros y que el valor sea positivo
+	 * @return
+	 * @throws IOException
+	 */
 	public int excepcionpos() throws IOException {
 		boolean n1=true;
 		do {
@@ -79,6 +99,11 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 		return numeropos;
 	}
 	
+	/**
+	 * Controla la excepciones de la introducción de los datos enteros y que el valor sea negativo
+	 * @return
+	 * @throws IOException
+	 */
 	public int excepcionneg() throws IOException {
 		boolean n1=true;
 		do {
@@ -98,6 +123,11 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 		return numeroneg;
 	}
 	
+	/**
+	 * Controla la excepciones de la introducción de los datos String
+	 * @return
+	 * @throws IOException
+	 */
 	public String excepcionstring() throws IOException {
 		boolean n1=true;
 		do {
@@ -111,6 +141,11 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 		return estring;
 	}
 	
+	/**
+	 * Controla la excepciones de la introducción de los datos boolean
+	 * @return
+	 * @throws IOException
+	 */
 	public boolean excepcionboolean() throws IOException {
 		boolean n1=true;
 		do {
@@ -124,6 +159,11 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 		return booldato;
 	}
 	
+	/**
+	 * Controla la excepciones de la introducción de los datos long
+	 * @return
+	 * @throws IOException
+	 */
 	public long excepcionlong() throws IOException {
 		boolean n1=true;
 		do {
@@ -137,6 +177,11 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 		return longdato;
 	}
 	
+	/**
+	 * Invierte cadena de caracteres.
+	 * @param cadena
+	 * @return
+	 */
 	public String invertircadena(String cadena) {
 		String cadenainvertida = "";
 		for (int i = cadena.length()-1; i>=0; i--) {
