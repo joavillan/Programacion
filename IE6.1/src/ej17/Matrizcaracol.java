@@ -12,37 +12,42 @@ public class Matrizcaracol {
 		
 		int n=a1.excepcionint();
 		int matrizcaracol [][] = new int [n][n];
-		int i;
 		int valor=1;
 		int a=0;
+		int b=n-1;
+		int contador=0;
 		
 		//int contador=0;
 		
-		for (i = a; i < matrizcaracol.length; i++) {
+		for (int i = a; i <= b; i++) {
 			matrizcaracol[a][i]=valor++;
 		}
 		
-		for (a = n-1; a < matrizcaracol.length; a++) {
-			matrizcaracol[a][i]=valor++;
+		//a++;
+		
+		for (int i = a+1; i < matrizcaracol.length; i++) {
+			matrizcaracol[i][b]=valor++;
 		}
 		
+		for (int i = b-1; i >= a; i--) {
+			matrizcaracol[b][i]=valor++;
+		}
 		
-		/*for (int i = 0; i < matrizcaracol.length; i++) {
-			for (int j = 0; j < matrizcaracol.length; j++) {
-				matrizcaracol[i][j]=valor++;
-			}
+		for (int i = a; i >= 1; i--) {
+			matrizcaracol[i][a]=valor++;
 		}
 		
 		for (int i = 0; i < matrizcaracol.length; i++) {
 			for (int j = 0; j < matrizcaracol.length; j++) {
-				System.out.print(matrizcaracol[i][j]+" ");
 				contador++;
 				if (contador==n) {
-					System.out.println("");
+					System.out.println(matrizcaracol[i][j]+" ");
 					contador=0;
+				}else {
+					System.out.print(matrizcaracol[i][j]+" ");
 				}
 			}
-		}*/
+		}
 	}
 
 }
