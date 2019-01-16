@@ -6,6 +6,8 @@ public class Barquitos {
 		// TODO Auto-generated method stub
 
 		int [] [] tablero1 = new int [10][10];
+		
+		System.out.println(tablero1);
 	}
 
 }

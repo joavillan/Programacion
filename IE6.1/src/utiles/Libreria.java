@@ -317,4 +317,52 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
             System.out.println();
         }
     }
+    /**
+     * Determina si una cadena es un palindromo
+     * @param cadena
+     */
+    public void palindromo (String cadena) {
+    	int ini=0;
+		int des = cadena.length()-1;
+		boolean bError = false;
+		
+		while ((ini<des) && (!bError)){
+			
+			if (cadena.charAt(ini)==cadena.charAt(des)){				
+				ini++;
+				des--;
+			} else {
+				bError = true;
+			}		
+		}
+		
+		if (!bError) {
+			System.out.println("Es un palíndromo");
+		}else {
+			System.out.println("No es un palíndromo");
+		}
+    }
+    
+    /**
+     * Determina si un valor entero es capicua o no
+     * @param entero
+     */
+    public void capicua (int entero) {
+    	String cadena = Integer.toString(entero);
+		String cadenainvertida = "";
+		
+		if (cadena.length()>1) {
+			for (int i = cadena.length()-1; i>=0; i--) {
+				cadenainvertida+=cadena.charAt(i);
+			}
+			int enteroinvertido = Integer.parseInt(cadenainvertida);
+			if (entero==enteroinvertido) {
+				System.out.println("Es capicua");
+			} else {
+				System.out.println("No es capicua");
+			}
+		}else {
+			System.out.println("No es capicua");
+		}
+    }
 }

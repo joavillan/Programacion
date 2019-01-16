@@ -9,6 +9,8 @@ public class Capicua {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		Libreria a1 = new Libreria();
+		
+		//Aqui hemos recogido un entero el cual convertiremos en un Strin que invertiremos y volveremos a pasarlo a entero para poder compararlo con el original
 
 		int entero = a1.excepcionint();
 		String cadena = Integer.toString(entero);

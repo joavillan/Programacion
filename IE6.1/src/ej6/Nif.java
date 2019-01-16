@@ -19,6 +19,7 @@ public class Nif {
 			System.out.print("Introduce DNI a comprobar: ");
 			String nif = a1.excepcionstring();
 			
+			//Comparamos si los 7 primeros caracteres son numéricos
 			if (nif.length()==9) {
 				for (int i = 0; i <= 7; i++) {
 					if (nif.charAt(i)=='0' || nif.charAt(i)=='1' || nif.charAt(i)=='2' || nif.charAt(i)=='3' || nif.charAt(i)=='4' || nif.charAt(i)=='5' || nif.charAt(i)=='6' || nif.charAt(i)=='7' || nif.charAt(i)=='8' || nif.charAt(i)=='9') {
@@ -29,7 +30,7 @@ public class Nif {
 						break;
 					}
 				}
-			
+			//Comprobamos que el ultimo caracter sea alfabético
 				String letra = Character.toString(nif.charAt(8));
 				if (num==true) {
 					boolean alfa = Pattern.matches("^[a-zA-Z]*$", letra);
