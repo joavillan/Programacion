@@ -5,6 +5,7 @@ public class Contarvocales {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		//.charAt(i) obtiene un caracter de una cadena
 		
 		String cadena="murcielago";
 		int contador=0;

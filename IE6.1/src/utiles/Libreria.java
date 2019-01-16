@@ -17,7 +17,7 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 
 	/**
 	 * Controla la excepciones de la introducción de los datos enteros
-	 * @return
+	 * @return int
 	 * @throws IOException
 	 */
 	public int excepcionint() throws IOException {
@@ -37,7 +37,7 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 	
 	/**
 	 * Controla la excepciones de la introducción de los datos float
-	 * @return
+	 * @return float
 	 * @throws IOException
 	 */
 	public float excepcionfloat() throws IOException {
@@ -57,7 +57,7 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 	
 	/**
 	 * Controla la excepciones de la introducción de los datos double
-	 * @return
+	 * @return double
 	 * @throws IOException
 	 */
 	public double excepciondouble() throws IOException {
@@ -77,7 +77,7 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 	
 	/**
 	 * Controla la excepciones de la introducción de los datos enteros y que el valor sea positivo
-	 * @return
+	 * @return int
 	 * @throws IOException
 	 */
 	public int excepcionpos() throws IOException {
@@ -101,7 +101,7 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 	
 	/**
 	 * Controla la excepciones de la introducción de los datos enteros y que el valor sea negativo
-	 * @return
+	 * @return int
 	 * @throws IOException
 	 */
 	public int excepcionneg() throws IOException {
@@ -125,7 +125,7 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 	
 	/**
 	 * Controla la excepciones de la introducción de los datos String
-	 * @return
+	 * @return String
 	 * @throws IOException
 	 */
 	public String excepcionstring() throws IOException {
@@ -143,7 +143,7 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 	
 	/**
 	 * Controla la excepciones de la introducción de los datos boolean
-	 * @return
+	 * @return boolean
 	 * @throws IOException
 	 */
 	public boolean excepcionboolean() throws IOException {
@@ -161,7 +161,7 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 	
 	/**
 	 * Controla la excepciones de la introducción de los datos long
-	 * @return
+	 * @return long
 	 * @throws IOException
 	 */
 	public long excepcionlong() throws IOException {
@@ -178,6 +178,25 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 	}
 	
 	/**
+	 * Escribe la matriz deseada por pantalla
+	 * @param matriz
+	 */
+	public void escribirmatriz(int matriz [][]) {
+		int contador=0;
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz.length; j++) {
+				contador++;
+				if (contador== matriz.length) {
+					System.out.println("0"+matriz[i][j]+" ");
+					contador=0;
+				}else {
+					System.out.print("0"+matriz[i][j]+" ");
+				}
+			}
+		}
+	}
+	
+	/**
 	 * Invierte cadena de caracteres.
 	 * @param cadena
 	 * @return
@@ -190,6 +209,11 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 		return cadenainvertida;
 	}
 	
+	/**
+	 * Genera la cantidad de dígitos de la sucesión de Fibonacci deseada
+	 * @param n
+	 * @return
+	 */
 	public static int fibonacci(int n) {
 		if (n>1){
 		       return fibonacci(n-1) + fibonacci(n-2);  //función recursiva
@@ -206,6 +230,10 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 		    }
 	}
 	
+	/**
+	 * Imprime la sucesión de Fibonacci
+	 * @throws IOException
+	 */
 	public void imprimirfibonacci() throws IOException {
 		int n = excepcionint();
 		for (int a = 0; a < n; a++) {
@@ -213,6 +241,10 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 		}
 	}
 	
+	/**
+	 * Ordena un array de menor a mayor
+	 * @param array
+	 */
 	public void metodoburbuja(int array[]) {
 		int temp=0;
 		for (int i = 0; i < array.length-1; i++) {
@@ -226,6 +258,10 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 		}
 	}
 	
+	/**
+	 * Ordena un array de menor a mayor
+	 * @param A
+	 */
 	public void insercionDirecta(int A[]){
 	    int p, j;
 	    int aux;
@@ -240,4 +276,45 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 	              A[j + 1] = aux; // colocamos aux en su sitio
 	    }
 	}
+	
+	public int[][] generarmatrizcaracol(int n, int x) {
+        int[][] M = new int[n + 1][n + 1];
+        for (int a = 1; a <= n / 2; a++) {
+            for (int i = a; i <= n - a; i++) {
+                M[a][i] = x;
+                x++;
+            }
+            for (int i = a; i <= n - a; i++) {
+                M[i][n - a + 1] = x;
+                x++;
+            }
+            for (int i = n - a + 1; i >= a + 1; i--) {
+                M[n - a + 1][i] = x;
+                x++;
+            }
+            for (int i = n - a + 1; i >= a + 1; i--) {
+                M[i][a] = x;
+                x++;
+            }
+        }
+        if (n % 2 == 1) {
+            M[n / 2 + 1][n / 2 + 1] = x;
+        }
+        return M;
+    }
+
+    /**
+     * Muestra Una Matriz Cualquiera Por Consola A Partir De La Fila 1 y Columna 1
+     * @param M matriz a mostrar
+     * @param f numero de filas de la matriz
+     * @param c numero de columnas de la matriz
+     */
+    public void mostrarmatrizcaracol(int[][] M, int f, int c) {
+        for (int i = 1; i <= f; i++) {
+            for (int j = 1; j <= c; j++) {
+                System.out.print("\t" + M[i][j]);
+            }
+            System.out.println();
+        }
+    }
 }
