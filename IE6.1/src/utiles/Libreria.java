@@ -189,4 +189,32 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 		}
 		return cadenainvertida;
 	}
+	
+	public void metodoburbuja(int array[]) {
+		int temp=0;
+		for (int i = 0; i < array.length-1; i++) {
+			for (int j = 0; j < array.length-1-i; j++) {
+				if (array[j] > array[j+1]) {
+					temp = array[j];
+					array[j] = array[j+1];
+					array[j+1]=temp;
+				}
+			}
+		}
+	}
+	
+	public void insercionDirecta(int A[]){
+	    int p, j;
+	    int aux;
+	    for (p = 1; p < A.length; p++){ // desde el segundo elemento hasta
+	              aux = A[p]; // el final, guardamos el elemento y
+	              j = p - 1; // empezamos a comprobar con el anterior
+	              while ((j >= 0) && (aux < A[j])){ // mientras queden posiciones y el
+	                                                                    // valor de aux sea menor que los
+	                             A[j + 1] = A[j];       // de la izquierda, se desplaza a
+	                             j--;                   // la derecha
+	              }
+	              A[j + 1] = aux; // colocamos aux en su sitio
+	    }
+	}
 }

@@ -17,13 +17,10 @@ public class Matrizcaracol {
 		int b=n-1;
 		int contador=0;
 		
-		//int contador=0;
 		
 		for (int i = a; i <= b; i++) {
 			matrizcaracol[a][i]=valor++;
 		}
-		
-		//a++;
 		
 		for (int i = a+1; i < matrizcaracol.length; i++) {
 			matrizcaracol[i][b]=valor++;
@@ -33,18 +30,34 @@ public class Matrizcaracol {
 			matrizcaracol[b][i]=valor++;
 		}
 		
-		for (int i = a; i >= 1; i--) {
+		for (int i = b-1; i >= 1; i--) {
 			matrizcaracol[i][a]=valor++;
 		}
+		
+		for (int i = a; i <= b-1; i++) {
+			matrizcaracol[a+1][i]=valor++;
+		}
+		
+		/*for (int i = a; i < b-1; i++) {
+			matrizcaracol[i][b]=valor++;
+		}*/
 		
 		for (int i = 0; i < matrizcaracol.length; i++) {
 			for (int j = 0; j < matrizcaracol.length; j++) {
 				contador++;
 				if (contador==n) {
-					System.out.println(matrizcaracol[i][j]+" ");
+					if (matrizcaracol[i][j]<=9) {
+						System.out.println("0"+matrizcaracol[i][j]+" ");
+					}else {
+						System.out.println(matrizcaracol[i][j]+" ");
+					}
 					contador=0;
 				}else {
-					System.out.print(matrizcaracol[i][j]+" ");
+					if (matrizcaracol[i][j]<=9) {
+						System.out.print("0"+matrizcaracol[i][j]+" ");
+					}else {
+						System.out.print(matrizcaracol[i][j]+" ");
+					}
 				}
 			}
 		}
