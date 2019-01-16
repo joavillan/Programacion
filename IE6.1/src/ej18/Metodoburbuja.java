@@ -13,6 +13,7 @@ public class Metodoburbuja {
 		int n=a1.excepcionint();
 		int matriz [][] = new int [n][n];
 		int arraya [] = new int [n];
+		int arrayb [] = new int [n];
 		
 		
 		for (int i = 0; i < matriz.length; i++) {
@@ -53,8 +54,22 @@ public class Metodoburbuja {
 			}
 		}
 		
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz.length; j++) {
+				if (i==j) {
+					arrayb[i]=matriz[n1][i];
+				}
+			}
+		}
+		
+		a1.insercionDirecta(arrayb);
+		
 		for (int i = 0; i < arraya.length; i++) {
 			System.out.print("0"+arraya[i]+" ");
+		}
+		System.out.println("");
+		for (int i = 0; i < arrayb.length; i++) {
+			System.out.print("0"+arrayb[i]+" ");
 		}
 	}
 

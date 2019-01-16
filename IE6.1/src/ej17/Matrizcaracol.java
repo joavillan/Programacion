@@ -38,10 +38,6 @@ public class Matrizcaracol {
 			matrizcaracol[a+1][i]=valor++;
 		}
 		
-		/*for (int i = a; i < b-1; i++) {
-			matrizcaracol[i][b]=valor++;
-		}*/
-		
 		for (int i = 0; i < matrizcaracol.length; i++) {
 			for (int j = 0; j < matrizcaracol.length; j++) {
 				contador++;

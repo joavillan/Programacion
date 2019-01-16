@@ -190,6 +190,29 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 		return cadenainvertida;
 	}
 	
+	public static int fibonacci(int n) {
+		if (n>1){
+		       return fibonacci(n-1) + fibonacci(n-2);  //función recursiva
+		    }
+		    else if (n==1) {  // caso base
+		        return 1;
+		    }
+		    else if (n==0){  // caso base
+		        return 0;
+		    }
+		    else{ //error
+		        System.out.println("Debes ingresar un tamaño mayor o igual a 1");
+		        return -1; 
+		    }
+	}
+	
+	public void imprimirfibonacci() throws IOException {
+		int n = excepcionint();
+		for (int a = 0; a < n; a++) {
+			System.out.print(fibonacci(a)+ ", ");
+		}
+	}
+	
 	public void metodoburbuja(int array[]) {
 		int temp=0;
 		for (int i = 0; i < array.length-1; i++) {

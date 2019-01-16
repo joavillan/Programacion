@@ -1,19 +1,17 @@
 package ej15;
 
+import java.io.IOException;
+
+import utiles.Libreria;
+
 public class Fibonacci {
-	
-	public static int fibonacci(int x, int y) {
-		if (x>=100) {
-			
-		}else {
-			return fibonacci(x);
-		}
-	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
+		Libreria a1 = new Libreria();
 
-		System.out.println(fibonacci(2));
+		a1.imprimirfibonacci();
+		
 	}
 
 }
