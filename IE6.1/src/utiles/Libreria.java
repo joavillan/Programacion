@@ -277,22 +277,28 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 	    }
 	}
 	
+	/**
+	 * Genera una matriz de n*n con una ordenación en forma de caracol
+	 * @param n
+	 * @param x
+	 * @return M (matriz)
+	 */
 	public int[][] generarmatrizcaracol(int n, int x) {
         int[][] M = new int[n + 1][n + 1];
-        for (int a = 1; a <= n / 2; a++) {
-            for (int i = a; i <= n - a; i++) {
+        for (int a = 1; a <= n / 2; a++) { // Se divide entre dos ya que hay la mitad de "n" de cada caso2
+            for (int i = a; i <= n - a; i++) {//Fila hacia derecha
                 M[a][i] = x;
                 x++;
             }
-            for (int i = a; i <= n - a; i++) {
+            for (int i = a; i <= n - a; i++) {//Columna hacia abajo
                 M[i][n - a + 1] = x;
                 x++;
             }
-            for (int i = n - a + 1; i >= a + 1; i--) {
+            for (int i = n - a + 1; i >= a + 1; i--) {//FIla hacia la izquierda
                 M[n - a + 1][i] = x;
                 x++;
             }
-            for (int i = n - a + 1; i >= a + 1; i--) {
+            for (int i = n - a + 1; i >= a + 1; i--) {//Columna hacia arriba
                 M[i][a] = x;
                 x++;
             }
