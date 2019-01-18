@@ -12,8 +12,6 @@ public class Burbuja {
 		
 		int n=a1.excepcionint();
 		int arraya[] = new int [n];
-		int temp=0;
-		boolean fin = true;
 		
 		for (int i = 0; i < arraya.length; i++) {
 			arraya[i]=(int) (Math.random() * 9) + 1;
