@@ -371,4 +371,198 @@ BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 			System.out.println("No es capicua");
 		}
     }
+    
+    /**
+	 * Método que halla el mayor valor de una matriz
+	 * @param matriz Matriz de la cual deseamos hallar el mayor valor
+	 * @return Retorna el mayor valor de la matriz.
+	 * */
+	public int mayorenmatriz(int[][] matriz) {
+		int aux=matriz[0][0];
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				if(matriz[i][j]>aux)
+					aux=matriz[i][j];
+			}
+		}
+		return aux;
+	}
+	
+	/**
+	 * Método que halla las posiciones del mayor valor de una matriz
+	 * @param matriz Matriz de la cual deseamos hallar las posiciones del mayor valor
+	 * @return Retorna las posiciones del mayor valor de una matriz.
+	 * */
+	public void posicionesMayorEnLaMatriz(int[][] matriz) {
+		int mayor=mayorenmatriz(matriz);
+		System.out.println("El mayor número se encuentra en la/s posición/es: ");
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				if(mayor==matriz[i][j])
+					System.out.print("["+i+"]["+j+"]  ");
+			}
+		}
+	}
+    
+    /**
+	 * Indica el menor valor de una matriz
+	 * @param matriz
+	 * @return Retorna el menor valor de la matriz
+	 * */
+	public int menorenmatriz(int[][] matriz) {
+		int aux=matriz[0][0];
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				if(matriz[i][j]<aux)
+					aux=matriz[i][j];
+			}
+		}
+		return aux;
+	}
+	
+	/**
+	 * Método que halla las posiciones del menor valor de una matriz
+	 * @param matriz Matriz de la cual deseamos hallar las posiciones del menor valor
+	 * @return Retorna las posiciones del menor valor de una matriz.
+	 * */
+	public void posicionesMenorEnLaMatriz(int[][] matriz) {
+		int menor=menorenmatriz(matriz);
+		System.out.println("El menor número se encuentra en la/s posición/es: ");
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				if(menor==matriz[i][j])
+					System.out.print("["+i+"]["+j+"]  ");
+			}
+		}
+	}
+	
+	/**
+	 * Método que halla el mayor valor de una fila.
+	 * @param matriz Matriz de la cual deseamos sacar el valor
+	 * @param fila Fila de la cual queremos sacar el mayor valor
+	 * @return Mayor valor de la fila
+	 * */
+	public int mayorenfila(int[][] matriz, int fila) {
+		int aux=matriz[fila][0];
+		for (int i = 0; i < matriz.length; i++) {
+			if(matriz[fila][i]>aux)
+				aux=matriz[fila][i];
+		}
+		return aux;
+	}
+	
+	/**
+	 * Método que halla el mayor valor de una columna.
+	 * @param matriz Matriz de la cual deseamos sacar el valor
+	 * @param columna Columna de la cual queremos sacar el mayor valor
+	 * @return Mayor valor de la columna
+	 * */
+	public int mayorencolumna(int[][] matriz, int columna) {
+		int aux=matriz[0][columna];
+		for (int i = 0; i < matriz.length; i++) {
+			if(matriz[i][columna]>aux)
+				aux=matriz[i][columna];
+		}
+		return aux;
+	}
+	
+	/**
+	 * Método que halla el menor valor de una fila.
+	 * @param matriz Matriz de la cual deseamos sacar el valor
+	 * @param fila Fila de la cual queremos sacar el menor valor
+	 * @return Menor valor de la fila
+	 * */
+	public int menorenfila(int[][] matriz, int fila) {
+		int aux=matriz[fila][0];
+		for (int i = 0; i < matriz.length; i++) {
+			if(matriz[fila][i]<aux)
+				aux=matriz[fila][i];
+		}
+		return aux;
+	}
+	
+	/**
+	 * Método que halla el menor valor de una columna.
+	 * @param matriz Matriz de la cual deseamos sacar el valor
+	 * @param columna Columna de la cual queremos sacar el menor valor
+	 * @return Menor valor de la columna
+	 * */
+	public int menorencolumna(int[][] matriz, int columna) {
+		int aux=matriz[0][columna];
+		for (int i = 0; i < matriz.length; i++) {
+			if(matriz[i][columna]<aux)
+				aux=matriz[i][columna];
+		}
+		return aux;
+	}
+    
+    /**
+  	 * Método público que haya los puntos de silla de una matriz (Los menores números
+  	 * en su fila, pero los mayores en su columna)
+  	 * @param matriz Matriz de la cual queremos hallar los puntos de silla
+  	 * */
+	public void puntoDeSilla(int[][] matriz) {
+
+		int aux; // Variable auxiliar
+
+		// Para cada fila, buscamos el menor valor existente y guardamos ese valor en un
+		// auxiliar.
+		for (int i = 0; i < matriz.length; i++) {
+			aux = menorenfila(matriz, i);
+			for (int j = 0; j < matriz[i].length; j++) {
+				if (aux == matriz[i][j]) { // Ahora, si el valor coincide en la fila, bloqueamos la columna y
+											// comprobamos
+					if (aux == mayorencolumna(matriz, j))
+						System.out.println(matriz[i][j] + "(Posición:[" + i + "," + j + "]" + " es un punto de silla");
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Método público que extrae un punto de silla de una matriz, junto con 
+	 * sus coordenadas.
+	 * @param matriz Matriz de la cual queremos extraer el punto de silla
+	 * @return Array con la siguiente estructura [puntoDeSilla, coordenadaI, coordenadaJ, puntoDeSilla, coordenadaI, coordenadaJ,...]
+	 * */
+	public int[] extraerPuntoDeSilla(int[][] matriz) {
+		int aux; // Variable auxiliar
+		int cont = 0; // Variable para contar los puntos de silla
+		int[] array; // Aquí guardaremos los puntos de silla y sus posiciones
+
+		for (int i = 0; i < matriz.length; i++) {
+			aux = menorenfila(matriz, i);
+			for (int j = 0; j < matriz[i].length; j++) {
+				if (aux == matriz[i][j]) { // Ahora, si el valor coincide en la fila, bloqueamos la columna y
+											// comprobamos
+					if (aux == mayorencolumna(matriz, j)) {
+						System.out.println(matriz[i][j] + "(Posición:[" + i + "," + j + "]" + " es un punto de silla");
+						cont++;
+					}
+				}
+			}
+		}
+
+		array = new int[cont * 3]; // Le damos tamaño al array
+		cont = 0;
+
+		for (int i = 0; i < matriz.length; i++) {
+			aux = menorenfila(matriz, i);
+			for (int j = 0; j < matriz[i].length; j++) {
+				if (aux == matriz[i][j]) { // Ahora, si el valor coincide en la fila, bloqueamos la columna y
+											// comprobamos
+					if (aux == mayorencolumna(matriz, j)) {
+						array[cont] = aux;
+						cont++;
+						array[cont] = i;
+						cont++;
+						array[cont] = j;
+						cont++;
+					}
+				}
+			}
+		}
+
+		return array;
+	}
 }
